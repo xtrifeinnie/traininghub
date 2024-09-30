@@ -32,7 +32,7 @@
         let opts = {
             map: {
                 center: [-6.593821394258885, 106.90297044855343],
-                zoom: 10,
+                zoom: 5,
                 fullscreenControl: false,
                 layersControl: false,
                 minimapControl: false,
@@ -85,12 +85,15 @@
 
         let map = L.map('map', opts.map);
 
-        // Secara eksplisit menonaktifkan semua opsi zoom
+        // Menonaktifkan semua bentuk zoom setelah peta terinisialisasi
         map.scrollWheelZoom.disable(); 
         map.doubleClickZoom.disable();
         map.touchZoom.disable(); 
         map.dragging.disable();
         map.keyboard.disable();
+
+        // Tambahkan ini untuk memastikan kontrol zoom dinonaktifkan
+        map.zoomControl?.disable();
 
         let controlElevation = L.control.elevation(opts.elevationControl.options).addTo(map);
         let controlLayer = L.control.layers(null, null, opts.layersControl.options);
