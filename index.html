@@ -48,6 +48,7 @@
                 dragging: false, // Nonaktifkan dragging
                 scrollWheelZoom: false, // Nonaktifkan zoom dengan scroll mouse
                 doubleClickZoom: false, // Nonaktifkan zoom dengan klik dua kali
+                touchZoom: false, // Nonaktifkan zoom dengan touch gestures
                 keyboard: false // Nonaktifkan kontrol keyboard
             },
             elevationControl: {
@@ -87,7 +88,9 @@
         // Secara eksplisit menonaktifkan semua opsi zoom
         map.scrollWheelZoom.disable(); 
         map.doubleClickZoom.disable();
+        map.touchZoom.disable(); 
         map.dragging.disable();
+        map.keyboard.disable();
 
         let controlElevation = L.control.elevation(opts.elevationControl.options).addTo(map);
         let controlLayer = L.control.layers(null, null, opts.layersControl.options);
