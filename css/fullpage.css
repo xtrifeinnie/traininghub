@@ -12,3 +12,8 @@ body {
     flex-direction: column;
 }
 
+.elevation-summary {
+    margin: 0; /* Mengatur semua margin menjadi 0 */
+   }
+
+
