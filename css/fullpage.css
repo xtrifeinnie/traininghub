@@ -13,7 +13,15 @@ body {
 }
 
 .elevation-summary {
-    margin: 0; /* Mengatur semua margin menjadi 0 */
+    margin: 0;
+    margin-top: ;
+    margin-right: ;
+    margin-bottom: ;
+    margin-left: ;
    }
+
+.leaflet-control-attribution {
+    display: none;
+}
 
 
