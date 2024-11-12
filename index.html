@@ -31,8 +31,8 @@
     <script>
         let opts = {
             map: {
-                center: [-6.593821394258885, 106.90297044855343],
-                zoom: 4,
+                center: [-6.593821394258885, 106.90297044855343], // Pusat peta
+                zoom: 5, // Set zoom lebih rendah untuk peta lebih jauh
                 fullscreenControl: false,
                 layersControl: false,
                 minimapControl: false,
@@ -44,12 +44,12 @@
                 preferCanvas: true,
                 mapTypeId: 'satellite',
                 rotate: false,
-                zoomControl: false, // Menonaktifkan kontrol zoom
-                dragging: false, // Nonaktifkan dragging
-                scrollWheelZoom: false, // Nonaktifkan zoom dengan scroll mouse
-                doubleClickZoom: false, // Nonaktifkan zoom dengan klik dua kali
-                touchZoom: false, // Nonaktifkan zoom dengan touch gestures
-                keyboard: false // Nonaktifkan kontrol keyboard
+                zoomControl: true, // Aktifkan kontrol zoom
+                dragging: true, // Aktifkan dragging
+                scrollWheelZoom: true, // Aktifkan zoom dengan scroll mouse
+                doubleClickZoom: true, // Aktifkan zoom dengan klik dua kali
+                touchZoom: true, // Aktifkan zoom dengan touch gestures
+                keyboard: true // Aktifkan kontrol keyboard
             },
             elevationControl: {
                 url: "https://xtrifeinnie.github.io/traininghub/weekly-course/nov-23rd.gpx",
@@ -85,15 +85,8 @@
 
         let map = L.map('map', opts.map);
 
-        // Menonaktifkan semua bentuk zoom setelah peta terinisialisasi
-        map.scrollWheelZoom.disable(); 
-        map.doubleClickZoom.disable();
-        map.touchZoom.disable(); 
-        map.dragging.disable();
-        map.keyboard.disable();
-
-        // Tambahkan ini untuk memastikan kontrol zoom dinonaktifkan
-        map.zoomControl?.disable();
+        // Pastikan kontrol zoom aktif setelah peta terinisialisasi
+        map.zoomControl?.enable();
 
         let controlElevation = L.control.elevation(opts.elevationControl.options).addTo(map);
         let controlLayer = L.control.layers(null, null, opts.layersControl.options);
